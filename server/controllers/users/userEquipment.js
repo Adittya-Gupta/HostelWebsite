@@ -1,8 +1,8 @@
-import Equipment from "../models/Inventory";
+import Inventory from "../models/inventory";
 
 export const getEquipment = async (req, res) => {
 	try {
-		const equipments = await Equipment.find();
+		const equipments = await Inventory.find();
 		res.status(200).json(movies);
 	} catch (err) {
 		res.status(404).json({ message: err.message });
@@ -12,7 +12,7 @@ export const getEquipment = async (req, res) => {
 export const issueEquipment = async (req, res) => {
 	try {
 		let equipment;
-		await Equipment.findOne({ name: req.body.name }, (err, result) => {
+		await Inventory.findOne({ name: req.body.name }, (err, result) => {
 			if (err) {
 				console.log(err);
 			} else {
