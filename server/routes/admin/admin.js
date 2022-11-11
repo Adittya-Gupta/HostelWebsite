@@ -1,0 +1,1 @@
+import Admin from '../../controllers/admin/admin';
