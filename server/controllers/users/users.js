@@ -1,14 +1,14 @@
-import Admin from '../../models/admin';
+import User from '../../models/users';
 
-export const validateAdmin = async (req, res) => {
+export const validateUser = async (req, res) => {
     const cred = req.body;
-    Admin.findOne({'username':cred.name},(err,admin)=>{
+    User.findOne({'username':cred.name},(err,admin)=>{
         if(err){
             console.log(err);
             res.status(500).send(err);
         }
         else if(!admin){
-            res.status(404).send("Admin with this username does not exist");
+            res.status(404).send("User with this username does not exist");
         }
         else{
             if(admin.password === cred.password){
