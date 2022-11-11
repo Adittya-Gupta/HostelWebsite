@@ -11,15 +11,7 @@ export const getEquipment = async (req, res) => {
 
 export const issueEquipment = async (req, res) => {
 	try {
-		let equipment;
-		await Inventory.findOne({ name: req.body.name }, (err, result) => {
-			if (err) {
-				console.log(err);
-				return;
-			} else {
-				equipment = result;
-			}
-		});
+		const equipment = await Inventory.findOne({ name: req.body.name });
 		res.json(equipment);
 	} catch (err) {
 		console.log(err);
