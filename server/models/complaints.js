@@ -18,6 +18,6 @@ const complaintSchema = mongoose.Schema({
     }
 });
 
-const Admin = mongoose.model('Admin',adminSchema);
+const Complaint = mongoose.model('Complaint',adminSchema);
 
-export default Admin;
+export default Complaint;
