@@ -5,11 +5,6 @@ import { useNavigate } from "react-router-dom";
 import "./styles.css";
 
 const MyNavbar = () => {
-  let navigate = useNavigate();
-  // const routeChangesignup = () =>{
-  //     let path = `/signup`;
-  //     navigate(path);
-  //   }
   return (
     <Navbar expand="lg" variant="dark" bg="dark" className="navbar">
       <Container>
