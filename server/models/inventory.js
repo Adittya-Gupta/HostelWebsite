@@ -9,16 +9,16 @@ const inventorySchema = mongoose.Schema({
         type : Boolean,
         required : true
     },
-    name :{
+    issued_by :{
         type : String,
         required : true
     },
-    room_number :{
-        type : String,
+    time_issued :{
+        type : Date,
         required : true
     }
 });
 
-const User = mongoose.model('User',userSchema);
+const Inventory = mongoose.model('Inventory',inventorySchema);
 
-export default User;
+export default Inventory;
