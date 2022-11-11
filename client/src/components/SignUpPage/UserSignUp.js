@@ -5,7 +5,7 @@ import "./styles.css";
 function UserSignUp() {
   return (
     <Form className="login-form">
-      <h1>User Login</h1>
+      <h1>User Sign Up</h1>
       <Form.Group className="mb-3">
         <Form.Label>Username</Form.Label>
         <Form.Control
