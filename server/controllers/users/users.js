@@ -2,7 +2,7 @@ import User from '../../models/users.js';
 
 export const validateUser = async (req, res) => {
     const cred = req.body;
-    User.findOne({'username':cred.name},(err,admin)=>{
+    User.findOne({'username':cred.username},(err,admin)=>{
         if(err){
             console.log(err);
             res.status(500).send(err);
