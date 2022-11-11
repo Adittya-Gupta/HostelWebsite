@@ -1,4 +1,4 @@
-import Complaint from "../models/complaints";
+import Complaint from "../../models/complaints.js";
 
 export const postComplaint = (req, res) => {
 	const complaint = req.body;

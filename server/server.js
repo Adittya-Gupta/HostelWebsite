@@ -2,8 +2,8 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import mongoose from "mongoose";
-import userRouter from "./routes/users/user.js"
-import adminRouter from "./routes/admin/user.js"
+import userRouter from "./routes/users/users.js"
+import adminRouter from "./routes/admin/admin.js"
 import dotenv from "dotenv";
 const app = express();
 dotenv.config();
