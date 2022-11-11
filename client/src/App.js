@@ -3,21 +3,18 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import AdminLogin from "./components/LoginPage/AdminLogin";
 import UserLogin from "./components/LoginPage/UserLogin";
-
+import HomePage from "./components/HomePage/HomePage";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
       <Router>
+        <MyNavbar></MyNavbar>
         <Routes>
-          <Route exact path="/admin/login" element={<AdminLogin />} />
-          <Route exact path="/user/login" element={<UserLogin />} />
+          <Route path="/" element={<HomePage/>}></Route>
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/user/login" element={<UserLogin />} />
         </Routes>
       </Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </BrowserRouter>
     </div>
   );
 }
