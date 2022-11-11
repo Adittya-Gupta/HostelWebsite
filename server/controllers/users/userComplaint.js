@@ -10,3 +10,17 @@ export const postComplaint = (req, res) => {
 		res.json({ message: err.message });
 	}
 };
+export const getComplaints = async (req, res) => {
+	const complaints = await Complaint.find(
+		{ from: req.body.name },
+		(err, result) => {
+			if (err) {
+				console.log(err);
+				return;
+			} else {
+				return result;
+			}
+		}
+	);
+	res.json(complaints);
+};
