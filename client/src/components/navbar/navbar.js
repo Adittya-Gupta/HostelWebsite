@@ -24,7 +24,7 @@ const MyNavbar = () => {
     
       <Nav className="justify-content-end mydiv" variant="pills">
         <Nav.Item>
-        <Button variant="outline-light" className='mybtn' onClick={()=>{navigate('/user/login')}}>Student Login</Button>{' '}
+        <Button variant="outline-light" className='mybtn' onClick={()=>{navigate('/users/login')}}>Student Login</Button>{' '}
         </Nav.Item>
         <Nav.Item>
         <Button variant="outline-light" className='mybtn' onClick={()=>{navigate('/admin/login')}}>Admin Login</Button>{' '}

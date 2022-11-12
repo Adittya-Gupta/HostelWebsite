@@ -1,6 +1,5 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Link } from "react-router-dom";
 import "./styles.css";
 import axios from 'axios';
 import {useNavigate} from "react-router-dom";
@@ -15,7 +14,7 @@ function UserLogin() {
           if(res.data.result==="Admin validated"){
             window.localStorage.setItem("username", res.data.username);
             window.localStorage.setItem("id", res.data.id);
-            navigate("/user", {replace: true});
+            navigate("/users", {replace: true});
           }
           else alert(res.data.result);
         }).catch(err=>console.log(err));
