@@ -5,17 +5,17 @@ export const validateAdmin = async (req, res) => {
     Admin.findOne({'username':cred.username},(err,admin)=>{
         if(err){
             console.log(err);
-            res.status(500).send(err);
+            res.send(err);
         }
         else if(!admin){
-            res.status(404).send("Admin with this username does not exist");
+            res.send({result:"Admin with this username does not exist"});
         }
         else{
             if(admin.password === cred.password){
-                res.status(200).send("Admin validated");
+                res.send({result:"Admin validated", username: admin.username, id: admin._id});
             }
             else{
-                res.status(401).send("Incorrect password");
+                res.status(401).send({result:"Incorrect password"});
             }
         }
     })

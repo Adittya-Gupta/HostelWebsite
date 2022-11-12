@@ -6,12 +6,12 @@ import userRouter from "./routes/users/users.js"
 import adminRouter from "./routes/admin/admin.js"
 import dotenv from "dotenv";
 const app = express();
+app.use(cors());
 dotenv.config();
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use('/users', userRouter);
 app.use('/admin', adminRouter);
-app.use(cors());
 
 const CONNECTION_URL =
   "mongodb+srv://admin:admin12345@cluster0.ngn3mkt.mongodb.net/?retryWrites=true&w=majority";

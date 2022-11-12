@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import "./styles.css";
 import axios from 'axios';
 import {useNavigate} from "react-router-dom";
-function UserLogin() {
+function Complaint() {
   const navigate = useNavigate();
   const handleSubmit = (e)=>{
     e.preventDefault();
@@ -22,33 +22,30 @@ function UserLogin() {
   }
   return (
     <Form className="login-form">
-      <h1>User Login</h1>
+      <h1>Enter your Complain</h1>
         <Form.Group className="mb-3">
-          <Form.Label>Username</Form.Label>
+          <Form.Label>title</Form.Label>
           <Form.Control
-            type="type"
-            placeholder="Enter your username"
-            id="username"
+            type="Text"
+            placeholder="Enter title of complain"
+            id="Type"
           />
         </Form.Group>
 
         <Form.Group className="mb-3">
-          <Form.Label>Password</Form.Label>
+          <Form.Label>description</Form.Label>
           <Form.Control
-            type="password"
-            placeholder="Enter your password"
-            id="password"
+            type="Text"
+            placeholder="Enter it's description"
+            id="description"
           />
         </Form.Group>
         <Button variant="primary" type="submit" onClick={handleSubmit}>
           Submit
-        </Button>
-        <Button variant="primary" onClick={()=>navigate('/users/signup')}>
-          Sign Up
         </Button>
       </Form>
 
   );
 }
 
-export default UserLogin;
+export default Complaint;

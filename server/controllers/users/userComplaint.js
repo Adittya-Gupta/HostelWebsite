@@ -11,16 +11,10 @@ export const postComplaint = (req, res) => {
 	}
 };
 export const getComplaints = async (req, res) => {
-	const complaints = await Complaint.find(
-		{ from: req.body.name },
-		(err, result) => {
-			if (err) {
-				console.log(err);
-				return;
-			} else {
-				return result;
-			}
-		}
-	);
-	res.json(complaints);
+	try {
+		const complaints = await Complaint.find({ from: req.body.username });
+		res.json(complaints);
+	} catch (err) {
+		res.send(err);
+	}
 };
