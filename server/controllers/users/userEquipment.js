@@ -11,7 +11,10 @@ export const getEquipment = async (req, res) => {
 
 export const issueEquipment = async (req, res) => {
 	try {
-		const equipment = await Inventory.findOne({ name: req.body.name });
+		const equipment = await Inventory.findOneAndUpdate(
+			{ name: req.body.name },
+			{ issued_by: req.body.username }
+		);
 		res.json(equipment);
 	} catch (err) {
 		console.log(err);

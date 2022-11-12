@@ -12,6 +12,7 @@ export const postComplaint = (req, res) => {
 };
 export const getComplaints = async (req, res) => {
 	try {
+		console.log(req);
 		const complaints = await Complaint.find({ from: req.body.username });
 		res.json(complaints);
 	} catch (err) {
