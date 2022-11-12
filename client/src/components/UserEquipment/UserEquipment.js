@@ -20,6 +20,17 @@ function UserEquipment() {
 	const requestIssue = (item) => {
 		// e.preventDefault();
 		// console.log(e);
+		const butt = document.getElementById("issue");
+		butt.innerHTML = `
+			<button
+				type=\"button\"
+				id=\"issue\"
+				class=\"btn btn-danger disabled\"
+			>
+				Requested
+			</button>
+		`;
+
 		const username = window.localStorage.getItem("username");
 
 		axios
@@ -72,6 +83,7 @@ function UserEquipment() {
 												onClick={() => {
 													requestIssue(item.name);
 												}}
+												id="issue"
 											>
 												Issue
 											</Button>
