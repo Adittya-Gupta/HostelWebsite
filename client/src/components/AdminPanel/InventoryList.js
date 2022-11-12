@@ -92,7 +92,7 @@ function InventoryList() {
 										</Button>
 									) : (
 										<Button
-											variant="danger"
+											variant="danger disabled"
 											onClick={() =>
 												handlecheckout(
 													item.name,
