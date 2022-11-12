@@ -6,6 +6,7 @@ import UserLogin from "./components/LoginPage/UserLogin";
 import HomePage from "./components/HomePage/HomePage";
 import UserSignUp from "./components/SignUpPage/UserSignUp";
 import AdminPanel from "./components/AdminPanel/AdminPanel";
+import Complaint from "./components/complaint/complaint";
 function App() {
   return (
     <div className="App">
@@ -17,6 +18,7 @@ function App() {
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/users/login" element={<UserLogin />} />
           <Route path="/users/signup" element={<UserSignUp />} />
+          <Route path="/users/complaint" element={<Complaint />} />
         </Routes>
       </Router>
     </div>

@@ -1,28 +1,24 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import "./styles.css";
 import axios from 'axios';
 import {useNavigate} from "react-router-dom";
 function Complaint() {
   const navigate = useNavigate();
   const handleSubmit = (e)=>{
     e.preventDefault();
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
-        const cred = {username, password}
-        axios.post('http://localhost:8080/users/login', cred).then((res)=>{
-          if(res.data.result==="Admin validated"){
-            window.localStorage.setItem("status", "user");
-            window.localStorage.setItem("username", res.data.username);
-            window.localStorage.setItem("id", res.data.id);
-            navigate("/users", {replace: true});
-          }
-          else alert(res.data.result);
+        const Type = document.getElementById("Type").value;
+        const description = document.getElementById("description").value;
+        const from = window.localStorage.getItem("username");
+        const solved_status = false;
+        const cred = {Type, description, from, solved_status}
+        axios.post('http://localhost:8080/users/complaint', cred).then((res)=>{
+          console.log(res.data)
+          navigate('/users')
         }).catch(err=>console.log(err));
   }
   return (
     <Form className="login-form">
-      <h1>Enter your Complain</h1>
+      <h1>Enter your Complain !</h1>
         <Form.Group className="mb-3">
           <Form.Label>title</Form.Label>
           <Form.Control
