@@ -1,4 +1,9 @@
-.navbar {
-    padding: 0.5rem 0;
+.mynavbar {
+    padding: 0px !important;
 }
 
+.mybtn{
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+
+}
