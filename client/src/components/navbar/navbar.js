@@ -21,15 +21,21 @@ const MyNavbar = () => {
           </Navbar.Brand>
       <Navbar.Brand>IITG Hostel</Navbar.Brand>
       </div>
-    
-      <Nav className="justify-content-end mydiv" variant="pills">
+
+      {window.localStorage.getItem("username") ? <Nav className="justify-content-end mydiv" variant="pills">
+        <Nav.Item>
+        <Button variant="outline-light" className='mybtn' onClick={()=>{window.localStorage.removeItem("username"); navigate('/admin/login')}}>Log out</Button>{' '}
+        </Nav.Item>
+      </Nav> : <Nav className="justify-content-end mydiv" variant="pills">
         <Nav.Item>
         <Button variant="outline-light" className='mybtn' onClick={()=>{navigate('/users/login')}}>Student Login</Button>{' '}
         </Nav.Item>
         <Nav.Item>
         <Button variant="outline-light" className='mybtn' onClick={()=>{navigate('/admin/login')}}>Admin Login</Button>{' '}
         </Nav.Item>
-      </Nav>
+      </Nav>}
+    
+      
     </Container>
   </Navbar>
    );
