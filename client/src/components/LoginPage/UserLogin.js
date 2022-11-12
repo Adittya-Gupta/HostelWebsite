@@ -12,6 +12,7 @@ function UserLogin() {
         const cred = {username, password}
         axios.post('http://localhost:8080/users/login', cred).then((res)=>{
           if(res.data.result==="Admin validated"){
+            window.localStorage.setItem("status", "user");
             window.localStorage.setItem("username", res.data.username);
             window.localStorage.setItem("id", res.data.id);
             navigate("/users", {replace: true});
