@@ -43,6 +43,9 @@ function UserLogin() {
         <Button variant="primary" type="submit" onClick={handleSubmit}>
           Submit
         </Button>
+        <Button variant="primary" onClick={()=>navigate('/users/signup')}>
+          Sign Up
+        </Button>
       </Form>
 
   );

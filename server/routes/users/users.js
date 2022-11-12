@@ -1,5 +1,5 @@
 import Express from "express";
-import { validateUser } from "../../controllers/users/users.js";
+import { validateUser, userSignup } from "../../controllers/users/users.js";
 import {
 	getComplaints,
 	postComplaint,
@@ -11,7 +11,7 @@ import {
 const userRouter = Express.Router();
 
 userRouter.post("/login", validateUser);
-// userRouter.post("/signup", userSignup);
+userRouter.post("/signup", userSignup);
 userRouter.get("/complaint", getComplaints);
 userRouter.post("/complaint", postComplaint);
 
