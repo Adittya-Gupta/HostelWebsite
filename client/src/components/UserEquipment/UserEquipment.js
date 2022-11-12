@@ -17,15 +17,14 @@ function UserEquipment() {
 			.then((res) => (data = res.data))
 			.then(() => setInventory(data));
 	}, [value]);
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		console.log(e);
+	const requestIssue = (item) => {
+		// e.preventDefault();
+		// console.log(e);
 		const username = window.localStorage.getItem("username");
-		const name = document.getElementById("name").value;
 
 		axios
 			.post("http://localhost:8080/users/inventory", {
-				name: name,
+				name: item,
 				username: username,
 			})
 			.then((res) => {
@@ -64,12 +63,17 @@ function UserEquipment() {
 									</td>
 									<td>
 										{item.issued ? (
-											<Button variant="success">
-												Check In
+											<Button variant="danger disabled">
+												Already Issued
 											</Button>
 										) : (
-											<Button variant="danger">
-												Check out
+											<Button
+												variant="success"
+												onClick={() => {
+													requestIssue(item.name);
+												}}
+											>
+												Issue
 											</Button>
 										)}
 									</td>
@@ -79,21 +83,6 @@ function UserEquipment() {
 					</tbody>
 				</Table>
 			</div>
-
-			<Form className="login-form">
-				<h1>Issue Items</h1>
-				<Form.Group className="mb-3">
-					{/* <Form.Label>title</Form.Label> */}
-					<Form.Control
-						type="Text"
-						placeholder="Enter exact name of an available item"
-						id="name"
-					/>
-				</Form.Group>
-				<Button variant="primary" type="submit" onClick={handleSubmit}>
-					Submit
-				</Button>
-			</Form>
 		</div>
 	);
 }
