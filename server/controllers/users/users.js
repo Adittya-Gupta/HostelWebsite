@@ -19,12 +19,10 @@ export const validateUser = async (req, res) => {
 };
 
 export const userSignup = async (req, res) => {
-	console.log(req);
-	await User.find({ username: req.body.username }, (err, user) => {
-		if (err) {
-			res.json({ message: err.message });
-			return;
-		}
+	// console.log(req);
+	try {
+		const user = await User.findOne({ username: req.body.username });
+		// console.log(user);
 		if (user) {
 			res.json({ message: "User already exists" });
 		} else {
@@ -36,5 +34,7 @@ export const userSignup = async (req, res) => {
 				res.json({ message: err.message });
 			}
 		}
-	});
+	} catch (err) {
+		res.send(err);
+	}
 };
