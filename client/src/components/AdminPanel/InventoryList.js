@@ -28,7 +28,7 @@ function InventoryList() {
 		const issued = false;
 		console.log("Check in called");
 		const time_issued = Date.now();
-		const data = { id, name, issued, issued_by, time_issued };
+		const data = { id, name, issued, issued_by: "", time_issued };
 		// useEffect(() => {
 		axios.put("http://localhost:8080/admin/equipment", data).then((res) => {
 			console.log(res);
@@ -72,7 +72,9 @@ function InventoryList() {
 								<td>{index + 1}</td>
 								<td>{item.name}</td>
 								<td>{item.issued ? "YES" : "NO"}</td>
-								<td>{item.issued ? item.issued_by : "N/A"}</td>
+								<td>
+									{item.issued_by ? item.issued_by : "N/A"}
+								</td>
 								<td>
 									{item.issued ? item.time_issued : "N/A"}
 								</td>
@@ -90,6 +92,18 @@ function InventoryList() {
 										>
 											Check In
 										</Button>
+									) : item.issued_by ? (
+										<Button
+											variant="danger"
+											onClick={() =>
+												handlecheckout(
+													item.name,
+													item._id
+												)
+											}
+										>
+											Issue
+										</Button>
 									) : (
 										<Button
 											variant="danger disabled"
@@ -100,7 +114,7 @@ function InventoryList() {
 												)
 											}
 										>
-											Check out
+											Free
 										</Button>
 									)}
 								</td>

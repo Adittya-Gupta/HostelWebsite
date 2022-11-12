@@ -48,7 +48,9 @@ function ComplaintList() {
 								<td>{item.description}</td>
 								<td>{item.from}</td>
 								<td>
-									{item.solved_status ? "Not Solved" : "N/A"}
+									{item.solved_status
+										? "Solved"
+										: "Not Solved"}
 								</td>
 								<td>
 									{item.solved_status ? (
