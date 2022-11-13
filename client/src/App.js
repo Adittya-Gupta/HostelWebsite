@@ -8,6 +8,7 @@ import UserSignUp from "./components/SignUpPage/UserSignUp";
 import AdminPanel from "./components/AdminPanel/AdminPanel";
 import Complaint from "./components/complaint/complaint";
 import UserEquipment from "./components/UserEquipment/UserEquipment";
+import UserPage from "./components/UserPage/UserPage";
 function App() {
 	return (
 		<div className="App">
@@ -20,7 +21,11 @@ function App() {
 					<Route path="/users/login" element={<UserLogin />} />
 					<Route path="/users/signup" element={<UserSignUp />} />
 					<Route path="/users/complaint" element={<Complaint />} />
-					<Route exact path="/users" element={<UserEquipment />} />
+					<Route
+						path="/users/equipment"
+						element={<UserEquipment />}
+					/>
+					<Route exact path="/users" element={<UserPage />} />
 				</Routes>
 			</Router>
 		</div>
