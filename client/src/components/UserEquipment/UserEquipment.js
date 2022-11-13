@@ -20,16 +20,12 @@ function UserEquipment() {
 	const requestIssue = (item) => {
 		// e.preventDefault();
 		// console.log(e);
-		const butt = document.getElementById("issue");
-		butt.innerHTML = `
-			<button
-				type=\"button\"
-				id=\"issue\"
-				class=\"btn btn-danger disabled\"
-			>
-				Requested
-			</button>
-		`;
+		window.localStorage.setItem(item, true);
+		if (window.localStorage.getItem(item)) {
+			const butt = document.getElementById("issue");
+			butt.className = "btn btn-danger disabled";
+			butt.innerText = "Requested";
+		}
 
 		const username = window.localStorage.getItem("username");
 
@@ -44,6 +40,16 @@ function UserEquipment() {
 			})
 			.catch((err) => console.log(err));
 	};
+	setInterval(() => {
+		inventory.forEach((item) => {
+			if (item.issued) {
+				window.localStorage.removeItem(item.name);
+			}
+			if (item.issued_by === "") {
+				window.localStorage.removeItem(item.name);
+			}
+		});
+	}, 1000);
 	return (
 		<div>
 			<div>
@@ -76,6 +82,12 @@ function UserEquipment() {
 										{item.issued ? (
 											<Button variant="danger disabled">
 												Already Issued
+											</Button>
+										) : window.localStorage.getItem(
+												item.name
+										  ) ? (
+											<Button variant="danger disabled">
+												Requested
 											</Button>
 										) : (
 											<Button
