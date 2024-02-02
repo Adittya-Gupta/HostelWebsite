@@ -15,7 +15,7 @@ function App() {
 			<Router>
 				<MyNavbar />
 				<Routes>
-					<Route path="/" element={<HomePage />}></Route>
+					<Route path="/sdfsdf" element={<HomePage />}></Route>
 					<Route path="/admin" element={<AdminPanel />} />
 					<Route path="/admin/login" element={<AdminLogin />} />
 					<Route path="/users/login" element={<UserLogin />} />
